@@ -1,0 +1,32 @@
+{% extends "inicio.html" %}
+
+{% block content %}
+    <h2>Listado de Inscritos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Turno</th>
+                <th>Seminarios</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for inscrito in inscritos %}
+            <tr>
+                <td>{{ inscrito.fecha }}</td>
+                <td>{{ inscrito.nombre }}</td>
+                <td>{{ inscrito.apellidos }}</td>
+                <td>{{ inscrito.turno }}</td>
+                <td>{{ inscrito.seminarios }}</td>
+                <td>
+                    <a href="/editar/{{ inscrito.id }}">Editar</a>
+                    <a href="/eliminar/{{ inscrito.id }}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
